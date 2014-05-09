@@ -10,8 +10,10 @@ var routes = require('./routes/index');
 var app = express();
 
 // view engine setup
+app.set('layout', 'layouts/default');
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.engine('html', require('hogan-express'));
+app.set('view engine', 'html');
 
 app.use(favicon());
 app.use(logger('dev'));
